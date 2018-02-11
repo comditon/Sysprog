@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main(int argc, char* argv[]){
-  int fd;
+  int fd = -1;
   if(argc != 2){
     printf("USAGE: ./open <filename>\n");
   }else{
@@ -11,6 +11,9 @@ int main(int argc, char* argv[]){
     }else{
       perror(argv[1]);
     }
+  }
+  if(fd != -1){
+    close(fd);
   }
   return 0;
 }
